@@ -1,101 +1,207 @@
-import Image from "next/image";
+'use client'
+
+import Image from 'next/image'
+import { FaCalendarAlt, FaClock, FaMapMarkerAlt} from 'react-icons/fa';
+// import { FaMusic, FaPause, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
+// import { useState, useRef, useEffect } from 'react';
+import { FiExternalLink } from 'react-icons/fi';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [isMounted, setIsMounted] = useState(false);
+  // const [isMuted, setIsMuted] = useState(true); // Start muted to comply with policies
+  // const [userInteracted, setUserInteracted] = useState(false);
+  // const audioRef = useRef<HTMLAudioElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // Initialize on mount
+  // useEffect(() => {
+  //   setIsMounted(true);
+  //   return () => setIsMounted(false);
+  // }, []);
+
+  // Handle play/pause
+  // const togglePlay = () => {
+  //   if (!audioRef.current) return;
+    
+  //   if (isPlaying) {
+  //     audioRef.current.pause();
+  //   } else {
+  //     audioRef.current.play()
+  //       .then(() => setIsPlaying(true))
+  //       .catch(error => {
+  //         console.error('Play failed:', error);
+  //         setIsPlaying(false);
+  //       });
+  //   }
+  //   setIsPlaying(!isPlaying);
+  // };
+
+  // Handle mute/unmute
+  // const toggleMute = () => {
+  //   if (audioRef.current) {
+  //     audioRef.current.muted = !isMuted;
+  //     setIsMuted(!isMuted);
+  //   }
+  // };
+
+  // Attempt autoplay when mounted (muted by default)
+  // useEffect(() => {
+  //   if (!isMounted || !audioRef.current) return;
+
+  //   // Start muted to comply with autoplay policies
+  //   audioRef.current.muted = true;
+  //   audioRef.current.volume = 0.5;
+    
+  //   const playPromise = audioRef.current.play();
+
+  //   if (playPromise !== undefined) {
+  //     playPromise
+  //       .then(() => {
+  //         setIsPlaying(true);
+  //         console.log('Autoplay started (muted)');
+  //       })
+  //       .catch(error => {
+  //         console.log('Autoplay blocked, will wait for interaction:', error);
+  //       });
+  //   }
+  // }, [isMounted]);
+
+  // if (!isMounted) return null;
+  
+  return (
+    <div 
+      className="min-h-screen bg-cover bg-center flex items-center justify-center px-4 py-12"
+      style={{ backgroundImage: "url('/images/background.jpg')" }}
+    >
+      {/* <div onClick={() => setUserInteracted(true)}>
+        {!userInteracted && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <button className="bg-amber-500 text-white px-6 py-3 rounded-lg">
+              ▶ Click to Enable Music
+            </button>
+          </div>
+        )}
+        {userInteracted}
+      </div> */}
+
+      {/* Audio Element */}
+      {/* <audio
+        ref={audioRef}
+        loop
+        muted={isMuted}
+        src="/music/Canon in D.mp3"
+      /> */}
+
+      {/* Music Player Button */}
+      {/* <button
+        onClick={togglePlay}
+        className="fixed top-4 right-4 bg-white bg-opacity-80 rounded-full p-3 shadow-lg z-10 hover:bg-opacity-100 transition-all"
+        aria-label={isPlaying ? "Pause music" : "Play music"}
+      >
+        {isPlaying ? (
+          <FaMusic className="text-amber-600 text-xl animate-pulse" />
+        ) : (
+          <FaPause className="text-amber-600 text-xl" />
+        )}
+      </button> */}
+
+      {/* <button
+        onClick={toggleMute}
+        className="fixed top-16 right-4 bg-white bg-opacity-80 rounded-full p-3 shadow-lg z-10 hover:bg-opacity-100 transition-all"
+        aria-label={isMuted ? "Unmute" : "Mute"}
+      >
+        {isMuted ? (
+          <FaVolumeMute className="text-amber-600 text-xl" />
+        ) : (
+          <FaVolumeUp className="text-amber-600 text-xl" />
+        )}
+      </button> */}
+      
+
+      <div className="bg-white bg-opacity-90 rounded-lg shadow-xl max-w-md w-full p-8 text-center">
+        <h1 className="text-3xl font-bold text-amber-800 mb-6">Undangan Pernikahan</h1>
+        
+        <div className="mb-8 border-t-2 border-b-2 border-amber-200 py-6">
+          <p className="text-gray-700 font-medium">Kepada</p>
+          <p className="text-xl font-bold text-amber-800 mt-2">Bapak/Ibu/Saudara/i</p>
+          <div className="border-b border-amber-300 w-1/2 mx-auto my-4"></div>
+          <p className="text-xl font-bold text-amber-800 mt-5">Imanda Eprilia dan Suami</p>
+          <div className="border-b border-amber-300 w-1/2 mx-auto my-4"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="mb-8">
+          <div className="relative h-64 w-full mb-6 rounded-lg overflow-hidden">
+            <Image
+              src="/images/couples.jpg"
+              alt="Zulfi dan Indra"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          
+        <div className="mb-6">
+          <p className="text-gray-700 mb-4">Assalamualaikum Wr. Wb.</p>
+          <p className="text-gray-700 mb-4">Salam Sejahtera untuk kita semua</p>
+        </div>
+          
+          <p className="text-gray-700 mb-4">
+            Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami.
+          </p>
+          
+          <div className="bg-amber-50 p-4 rounded-lg mb-4 space-y-4 border border-amber-100 text-center">
+            {/* Date - Centered */}
+            <div className="flex flex-col items-center">
+              <FaCalendarAlt className="text-amber-600 text-xl mb-2" />
+              <div>
+                <p className="font-medium text-amber-800">Hari & Tanggal</p>
+                <p className="text-gray-700">Rabu, 28 Mei 2025</p>
+              </div>
+            </div>
+            
+            {/* Time - Centered */}
+            <div className="flex flex-col items-center">
+              <FaClock className="text-amber-600 text-xl mb-2" />
+              <div>
+                <p className="font-medium text-amber-800">Waktu Acara</p>
+                <p className="text-gray-700">12.00 WIB - Selesai</p>
+              </div>
+            </div>
+            
+            {/* Location - Centered */}
+            <div className="flex flex-col items-center">
+              <FaMapMarkerAlt className="text-amber-600 text-xl mb-2" />
+              <div>
+                <p className="font-medium text-amber-800">Lokasi</p>
+                <p className="text-gray-700">Swasana Gedung Serbaguna</p>
+                <p className="text-gray-600 text-sm">Jl. Raya Manukan Wetan No.68f, Manukan Wetan, Kec. Tandes, Surabaya, Jawa Timur 60185</p>
+                <a 
+                  href="https://maps.app.goo.gl/ttayDNPDTL5WNxJ28" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-amber-600 hover:text-amber-800 text-sm inline-flex items-center justify-center mt-1"
+                >
+                  Lihat di Peta <FiExternalLink className="ml-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <div className="mb-8">
+          <p className="text-gray-700 italic">
+            Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
+          </p>
+          <p className="text-gray-700 mt-4">Terima Kasih</p>
+        </div>
+
+        <div className="border-t-2 border-amber-200 pt-6">
+          <p className="text-gray-700 font-medium">Hormat kami,</p>
+          <p className="text-xl font-bold text-amber-800 mt-2">Zulfi dan Indra</p>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
